@@ -4,19 +4,15 @@ import android.net.Uri;
 
 import java.io.File;
 
-public class CommonInfo
-{
+public class CommonInfo {
 
 
-
-
-
-	// Its for Live Path on 194 Server
+    // Its for Live Path on 194 Server
 
 /*
 
 
-	public static String AppLatLngJsonFile="RSPLLatLngJson";
+	public static String AppLatLngJsonFile="PARASLatLngJson";
 
 	public static String imei="";
   //SHA1: 20:90:67:F3:84:EC:D9:D8:F1:33:03:92:28:B8:C5:7D:A4:12:12:ED
@@ -31,7 +27,7 @@ public class CommonInfo
 	public static int DistanceRange=3000;//Defautl Distance Range to show for store list
 
 	public static String VersionDownloadPath="http://103.20.212.194/downloads/";
-	public static String VersionDownloadAPKName="RSPLSTSOMapping.apk";
+	public static String VersionDownloadAPKName="PARASSTSOMapping.apk";
 
 	public static String DATABASE_NAME = "DBAdapterLtFoods";
 
@@ -51,40 +47,25 @@ public class CommonInfo
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL/Reports/frmPDAImgsLive.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String RSPLOrderXMLFolder="RSPLXml";
-	public static String RSPLImagesnFolder="RSPLImages";
+	public static String PARASOrderXMLFolder="PARASXml";
+	public static String PARASImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 
 
 	public static int flgNewStoreORStoreValidation=0;
-	public static String OrderXMLFolder="RSPLXml";
-	public static String FinalLatLngJsonFile="RSPLFinalLatLngJson";
-    public static String ImagesnFolder="RSPLImages";
+	public static String OrderXMLFolder="PARASXml";
+	public static String FinalLatLngJsonFile="PARASFinalLatLngJson";
+    public static String ImagesnFolder="PARASImages";
 
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// Its for Test Path on 194 Server
+    // Its for Test Path on 194 Server
 
 /*
 
-	public static String AppLatLngJsonFile="RSPLLatLngJson";
+	public static String AppLatLngJsonFile="PARASLatLngJson";
 	public static File imageF_savedInstance=null;
 	public static String imageName_savedInstance=null;
 	public static String clickedTagPhoto_savedInstance=null;
@@ -107,8 +88,8 @@ public class CommonInfo
 	public static int DistanceRange=3000;//Defautl Distance Range to show for store list
 
 	public static String VersionDownloadPath="http://103.20.212.194/downloads/";
-	//public static String VersionDownloadAPKName="RSPLSTSOMappingDemo.apk";  //  imei (352840070645679) HardCode given to Ashish Sir(Alok Sir friend) on 13 march 2018 by Sunil Dangi
-	public static String VersionDownloadAPKName="RSPLSTSOMappingTest.apk";
+	//public static String VersionDownloadAPKName="PARASSTSOMappingDemo.apk";  //  imei (352840070645679) HardCode given to Ashish Sir(Alok Sir friend) on 13 march 2018 by Sunil Dangi
+	public static String VersionDownloadAPKName="PARASSTSOMappingTest.apk";
 
 	public static String DATABASE_NAME = "DBAdapterLtFoods";
 
@@ -129,28 +110,23 @@ public class CommonInfo
     public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_test/Reports/frmPDAImgstest.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String RSPLOrderXMLFolder="RSPLXml";
-	public static String RSPLImagesnFolder="RSPLImages";
+	public static String PARASOrderXMLFolder="PARASXml";
+	public static String PARASImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 
 
 	public static int flgNewStoreORStoreValidation=0;
-	public static String OrderXMLFolder="RSPLXml";
-	public static String FinalLatLngJsonFile="RSPLFinalLatLngJson";
-	public static String ImagesnFolder="RSPLImages";
+	public static String OrderXMLFolder="PARASXml";
+	public static String FinalLatLngJsonFile="PARASFinalLatLngJson";
+	public static String ImagesnFolder="PARASImages";
 */
 
 
-
-
-
-
-
-	// Its for Development Path on 194 Server
+    // Its for Development Path on 194 Server
 /*
 
-	public static String AppLatLngJsonFile="RSPLLatLngJson";
+	public static String AppLatLngJsonFile="PARASLatLngJson";
 	public static String imei="";
 
 	public static String fileContent="";
@@ -166,7 +142,7 @@ public class CommonInfo
 	public static int DistanceRange=3000;//Defautl Distance Range to show for store list
 
 	public static String VersionDownloadPath="http://103.20.212.194/downloads/";
-	public static String VersionDownloadAPKName="RSPLSTSOMappingDev.apk";
+	public static String VersionDownloadAPKName="PARASSTSOMappingDev.apk";
 
 	public static String DATABASE_NAME = "DBAdapterLtFoods";
 
@@ -183,71 +159,69 @@ public class CommonInfo
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_dev/Reports/frmPDAImgsdev.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String RSPLOrderXMLFolder="RSPLXml";
-	public static String RSPLImagesnFolder="RSPLImages";
+	public static String PARASOrderXMLFolder="PARASXml";
+	public static String PARASImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
-	public static String OrderXMLFolder="RSPLXml";
-	public static String FinalLatLngJsonFile="RSPLFinalLatLngJson";
-    public static String ImagesnFolder="RSPLImages";
+	public static String OrderXMLFolder="PARASXml";
+	public static String FinalLatLngJsonFile="PARASFinalLatLngJson";
+    public static String ImagesnFolder="PARASImages";
 	public static int flgNewStoreORStoreValidation=0;
 
 */
 
 
-	// Its for Test Release Path on 194 Server
+    // Its for Test Release Path on 194 Server
 
 
-	public static String AppLatLngJsonFile="RSPLLatLngJson";
-	public static String imei="";
+    public static String AppLatLngJsonFile = "PARASLatLngJson";
+    public static String imei = "";
 
-	public static String fileContent="";
-	public static final String MejiDairyPreference="MejiDairyPreference";
+    public static String fileContent = "";
+    public static final String MejiDairyPreference = "MejiDairyPreference";
 
-	public static String WebManageDSRUrl="http://103.20.212.194/RSPL_testrelease/pda/frmIMEImanagement.aspx";
+    public static String WebManageDSRUrl = "http://103.20.212.194/RSPL_testrelease/pda/frmIMEImanagement.aspx";
 
-	public static String OrderSyncPathDistributorMap="http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSODistributorMapping.aspx";
-	public static String OrderSyncPathDistributorTarget="http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSODistributorTarget.aspx";
+    public static String OrderSyncPathDistributorMap = "http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSODistributorMapping.aspx";
+    public static String OrderSyncPathDistributorTarget = "http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSODistributorTarget.aspx";
 
-	public static String WebServicePath="http://103.20.212.194/WebServiceAndroidRSPLTestRelease/Service.asmx";
+    public static String WebServicePath = "http://103.20.212.194/WebServiceAndroidRSPLTestRelease/Service.asmx";
 
-	public static int DistanceRange=3000;//Defautl Distance Range to show for store list
+    public static int DistanceRange = 3000;//Defautl Distance Range to show for store list
 
-	public static String VersionDownloadPath="http://103.20.212.194/downloads/";
-	public static String VersionDownloadAPKName="RSPLSTSOMappingTestRelease.apk";
+    public static String VersionDownloadPath = "http://103.20.212.194/downloads/";
+    public static String VersionDownloadAPKName = "PARASSTSOMappingTestRelease.apk";
 
-	public static String DATABASE_NAME = "DBAdapterLtFoods";
+    public static String DATABASE_NAME = "DBAdapterLtFoods";
 
-	public static int AnyVisit = 0;
+    public static int AnyVisit = 0;
 
+    public static int DATABASE_VERSIONID = 36;      // put this field value based on value in table on the server
+    public static String AppVersionID = "1.10";   // put this field value based on value in table on the server
+    public static int Application_TypeID = 3; //1=Parag Store Mapping,2=Parag SFA Indirect,3=Parag SFA Direct
 
-	public static int DATABASE_VERSIONID = 36;      // put this field value based on value in table on the server
-	public static String AppVersionID = "1.10";   // put this field value based on value in table on the server
-	public static int Application_TypeID = 3; //1=Parag Store Mapping,2=Parag SFA Indirect,3=Parag SFA Direct
+    public static String OrderSyncPath = "http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSO.aspx";
+    public static String ImageSyncPath = "http://103.20.212.194/ReadXML_RSPLImagesTestRelease/Default.aspx";
 
-	public static String OrderSyncPath="http://103.20.212.194/ReadXML_RSPLTestRelease/DefaultSO.aspx";
-	public static String ImageSyncPath="http://103.20.212.194/ReadXML_RSPLImagesTestRelease/Default.aspx";
+    public static String URLImageLinkToViewStoreOverWebProtal = "http://103.20.212.194/RSPL_Testrelease/Reports/frmPDAImgsdev.aspx";
 
-	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_Testrelease/Reports/frmPDAImgsdev.aspx";
+    public static String SalesPersonTodaysTargetMsg = "";
+    public static String PARASOrderXMLFolder = "PARASXml";
+    public static String PARASImagesnFolder = "PARASImages";
 
-	public static String SalesPersonTodaysTargetMsg="";
-	public static String RSPLOrderXMLFolder="RSPLXml";
-	public static String RSPLImagesnFolder="RSPLImages";
-
-	public static int flgLTFoodsSOOnlineOffLine=0;
-	public static String OrderXMLFolder="RSPLXml";
-	public static String FinalLatLngJsonFile="RSPLFinalLatLngJson";
-	public static String ImagesnFolder="RSPLImages";
-	public static int flgNewStoreORStoreValidation=0;
-
+    public static int flgLTFoodsSOOnlineOffLine = 0;
+    public static String OrderXMLFolder = "PARASXml";
+    public static String FinalLatLngJsonFile = "PARASFinalLatLngJson";
+    public static String ImagesnFolder = "PARASImages";
+    public static int flgNewStoreORStoreValidation = 0;
 
 
-	// Its for Training Path on 194 Server
+    // Its for Training Path on 194 Server
 
 
 /*
 
-	public static String AppLatLngJsonFile="RSPLLatLngJson";
+	public static String AppLatLngJsonFile="PARASLatLngJson";
 
 	public static String imei="";
 	//SHA1: 20:90:67:F3:84:EC:D9:D8:F1:33:03:92:28:B8:C5:7D:A4:12:12:ED
@@ -267,7 +241,7 @@ public class CommonInfo
 	public static int DistanceRange=3000;//Defautl Distance Range to show for store list
 
 	public static String VersionDownloadPath="http://103.20.212.194/downloads/";
-	public static String VersionDownloadAPKName="RSPLSTSOMappingTraining.apk";
+	public static String VersionDownloadAPKName="PARASSTSOMappingTraining.apk";
 
 	public static String DATABASE_NAME = "DBAdapterLtFoods";
 
@@ -285,19 +259,18 @@ public class CommonInfo
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_Training/Reports/frmPDAImgsLive.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String RSPLOrderXMLFolder="RSPLXml";
-	public static String RSPLImagesnFolder="RSPLImages";
+	public static String PARASOrderXMLFolder="PARASXml";
+	public static String PARASImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 
 
 	public static int flgNewStoreORStoreValidation=0;
-	public static String OrderXMLFolder="RSPLXml";
-	public static String FinalLatLngJsonFile="RSPLFinalLatLngJson";
-	public static String ImagesnFolder="RSPLImages";
+	public static String OrderXMLFolder="PARASXml";
+	public static String FinalLatLngJsonFile="PARASFinalLatLngJson";
+	public static String ImagesnFolder="PARASImages";
 
 */
-
 
 
 }
