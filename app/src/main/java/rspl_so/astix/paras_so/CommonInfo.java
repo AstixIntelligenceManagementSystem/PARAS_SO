@@ -47,8 +47,8 @@ public class CommonInfo {
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL/Reports/frmPDAImgsLive.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String PARASOrderXMLFolder="PARASXml";
-	public static String PARASImagesnFolder="PARASImages";
+	public static String RSPLOrderXMLFolder="PARASXml";
+	public static String RSPLImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 
@@ -110,8 +110,8 @@ public class CommonInfo {
     public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_test/Reports/frmPDAImgstest.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String PARASOrderXMLFolder="PARASXml";
-	public static String PARASImagesnFolder="PARASImages";
+	public static String RSPLOrderXMLFolder="PARASXml";
+	public static String RSPLImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 
@@ -159,8 +159,8 @@ public class CommonInfo {
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_dev/Reports/frmPDAImgsdev.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String PARASOrderXMLFolder="PARASXml";
-	public static String PARASImagesnFolder="PARASImages";
+	public static String RSPLOrderXMLFolder="PARASXml";
+	public static String RSPLImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 	public static String OrderXMLFolder="PARASXml";
@@ -206,8 +206,8 @@ public class CommonInfo {
     public static String URLImageLinkToViewStoreOverWebProtal = "http://103.20.212.194/RSPL_Testrelease/Reports/frmPDAImgsdev.aspx";
 
     public static String SalesPersonTodaysTargetMsg = "";
-    public static String PARASOrderXMLFolder = "PARASXml";
-    public static String PARASImagesnFolder = "PARASImages";
+    public static String RSPLOrderXMLFolder = "PARASXml";
+    public static String RSPLImagesnFolder = "PARASImages";
 
     public static int flgLTFoodsSOOnlineOffLine = 0;
     public static String OrderXMLFolder = "PARASXml";
@@ -259,8 +259,8 @@ public class CommonInfo {
 	public static String URLImageLinkToViewStoreOverWebProtal="http://103.20.212.194/RSPL_Training/Reports/frmPDAImgsLive.aspx";
 
 	public static String SalesPersonTodaysTargetMsg="";
-	public static String PARASOrderXMLFolder="PARASXml";
-	public static String PARASImagesnFolder="PARASImages";
+	public static String RSPLOrderXMLFolder="PARASXml";
+	public static String RSPLImagesnFolder="PARASImages";
 
 	public static int flgLTFoodsSOOnlineOffLine=0;
 

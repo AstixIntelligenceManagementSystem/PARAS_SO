@@ -69,108 +69,126 @@ public class Splash_Activity extends Activity {
     public String[] xmlForWeb = new String[1];
 
     String imei;//="123456789";
-    public int chkFlgForErrorToCloseApp = 0;
+    public int chkFlgForErrorToCloseApp=0;
     public String fDate;
     public SimpleDateFormat sdf;
 
     private boolean backBtnPress;
-    private static final int SPLASH_DURATION = 3000;
+    private static final int SPLASH_DURATION=3000;
     private Handler myHandler;
-    DBAdapterLtFoods dbengine = new DBAdapterLtFoods(this);
+DBAdapterLtFoods dbengine=new DBAdapterLtFoods(this);
     ServiceWorker newservice = new ServiceWorker();
-    public int flgChkforNewVersion = 0;
-
+public int flgChkforNewVersion=0;
     public boolean onKeyDown(int keyCode, KeyEvent event)    // Control the PDA Native Button Handling
     {
         // TODO Auto-generated method stub
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
             return true;
             // finish();
         }
-        if (keyCode == KeyEvent.KEYCODE_HOME) {
+        if(keyCode==KeyEvent.KEYCODE_HOME)
+        {
             // finish();
 
         }
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
+        if(keyCode==KeyEvent.KEYCODE_MENU)
+        {
             return true;
         }
-        if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+        if(keyCode== KeyEvent.KEYCODE_SEARCH)
+        {
             return true;
         }
 
-        return super.onKeyDown(keyCode, event);
-    }
-
+        return super.onKeyDown(keyCode, event);}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
         if (Build.VERSION.SDK_INT >= 23) {
 
-            if (checkingPermission()) {
+            if(checkingPermission()){
                 onCreateFunctionality();
-            } else {
+            }
+
+
+
+            else{
                 ActivityCompat.requestPermissions(Splash_Activity.this,
                         new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA, android.Manifest.permission.ACCESS_FINE_LOCATION},
                         1);
-            }
-        } else {
+            }}
+        else{
             onCreateFunctionality();
 
         }
     }
-
-    public boolean checkingPermission() {
-        if ((checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+    public  boolean checkingPermission(){
+        if ((checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) )
+        {
             return false;
             //onCreateFunctionality();
-        } else if ((checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+        }
+        else if((checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)){
             return false;
-        } else if ((checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)) {
+        }
+        else if((checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)){
             return false;
-        } else if ((checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
+        }
+        else if((checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
             return false;
-        } else if ((checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+        }
+        else if((checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)){
             return false;
-        } else if ((checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+        }
+        else if((checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)){
             return false;
-        } else {
+        }
+        else{
             return true;
         }
     }
-
-    private class ImageSync extends AsyncTask<Void, Void, Boolean> {
+    private class ImageSync extends AsyncTask<Void,Void,Boolean>
+    {
         // ProgressDialog pDialogGetStores;
-        public ImageSync(Splash_Activity activity) {
+        public ImageSync(Splash_Activity activity)
+        {
 
         }
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             super.onPreExecute();
 
 
+
         }
-
         @Override
-        protected Boolean doInBackground(Void... args) {
-            boolean isErrorExist = false;
+        protected Boolean doInBackground(Void... args)
+        {
+            boolean isErrorExist=false;
 
 
-            try {
+            try
+            {
 
-                ArrayList<String> listImageDetails = new ArrayList<String>();
+                ArrayList<String> listImageDetails=new ArrayList<String>();
 
-                listImageDetails = dbengine.getImageDetails(5);
+                listImageDetails=dbengine.getImageDetails(5);
 
-                if (listImageDetails != null && listImageDetails.size() > 0) {
-                    for (String imageDetail : listImageDetails) {
-                        String tempIdImage = imageDetail.split(Pattern.quote("^"))[0].toString();
-                        String imagePath = imageDetail.split(Pattern.quote("^"))[1].toString();
-                        String imageName = imageDetail.split(Pattern.quote("^"))[2].toString();
-                        String file_dj_path = Environment.getExternalStorageDirectory() + "/" + CommonInfo.RSPLImagesnFolder + "/" + imageName;
+                if(listImageDetails!=null && listImageDetails.size()>0)
+                {
+                    for(String imageDetail:listImageDetails)
+                    {
+                        String tempIdImage=imageDetail.split(Pattern.quote("^"))[0].toString();
+                        String imagePath=imageDetail.split(Pattern.quote("^"))[1].toString();
+                        String imageName=imageDetail.split(Pattern.quote("^"))[2].toString();
+                        String file_dj_path = Environment.getExternalStorageDirectory() + "/"+CommonInfo.RSPLImagesnFolder+"/"+imageName;
                         File fImage = new File(file_dj_path);
-                        if (fImage.exists()) {
+                        if (fImage.exists())
+                        {
                             uploadImage(imagePath, imageName, tempIdImage);
                         }
 
@@ -178,9 +196,14 @@ public class Splash_Activity extends Activity {
                 }
 
 
-            } catch (Exception e) {
-                isErrorExist = true;
-            } finally {
+            }
+            catch (Exception e)
+            {
+                isErrorExist=true;
+            }
+
+            finally
+            {
                 Log.i("SvcMgr", "Service Execution Completed...");
             }
 
@@ -188,37 +211,50 @@ public class Splash_Activity extends Activity {
         }
 
         @Override
-        protected void onPostExecute(Boolean resultError) {
+        protected void onPostExecute(Boolean resultError)
+        {
             super.onPostExecute(resultError);
 
 
-            dbengine.fndeleteSbumittedStoreImagesOfSotre(4);
-            if (dbengine.fnCheckForPendingXMLFilesInTable() == 1) {
-                new FullSyncDataNow(Splash_Activity.this).execute();
-            } else {
-                if (dbengine.fnCheckForPendingHalftSavedStoresInTable() == 0) {
-                    CheckUpdateVersion cuv = new CheckUpdateVersion();
-                    cuv.execute();
-                } else {
-                    intentPassToLauncherActivity("0");
+
+
+
+                dbengine.fndeleteSbumittedStoreImagesOfSotre(4);
+                if(dbengine.fnCheckForPendingXMLFilesInTable()==1)
+                {
+                    new FullSyncDataNow(Splash_Activity.this).execute();
                 }
-            }
+                else
+                {
+                    if(dbengine.fnCheckForPendingHalftSavedStoresInTable()==0) {
+                        CheckUpdateVersion cuv = new CheckUpdateVersion();
+                        cuv.execute();
+                    }
+                    else
+                    {
+                        intentPassToLauncherActivity("0");
+                    }
+                }
+
+
 
 
         }
     }
 
 
-    public void uploadImage(String sourceFileUri, String fileName, String tempIdImage) throws IOException {
+
+    public void uploadImage(String sourceFileUri,String fileName,String tempIdImage) throws IOException
+    {
         BitmapFactory.Options IMGoptions01 = new BitmapFactory.Options();
-        IMGoptions01.inDither = false;
-        IMGoptions01.inPurgeable = true;
-        IMGoptions01.inInputShareable = true;
-        IMGoptions01.inTempStorage = new byte[16 * 1024];
+        IMGoptions01.inDither=false;
+        IMGoptions01.inPurgeable=true;
+        IMGoptions01.inInputShareable=true;
+        IMGoptions01.inTempStorage = new byte[16*1024];
 
         //finalBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(fnameIMG,IMGoptions01), 640, 480, false);
 
-        Bitmap bitmap = BitmapFactory.decodeFile(Uri.parse(sourceFileUri).getPath(), IMGoptions01);
+        Bitmap bitmap = BitmapFactory.decodeFile(Uri.parse(sourceFileUri).getPath(),IMGoptions01);
 
 //			/Uri.parse(sourceFileUri).getPath()
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -234,7 +270,7 @@ public class Splash_Activity extends Activity {
 
         //     byte [] byte_arr = stream.toByteArray();
         String image_str = BitMapToString(bitmap);
-        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        ArrayList<NameValuePair> nameValuePairs = new  ArrayList<NameValuePair>();
 
         ////System.out.println("image_str: "+image_str);
 
@@ -243,10 +279,11 @@ public class Splash_Activity extends Activity {
         //buffer.clear();
         //buffer = null;
         bitmap.recycle();
-        nameValuePairs.add(new BasicNameValuePair("image", image_str));
+        nameValuePairs.add(new BasicNameValuePair("image",image_str));
         nameValuePairs.add(new BasicNameValuePair("FileName", fileName));
         nameValuePairs.add(new BasicNameValuePair("TempID", tempIdImage));
-        try {
+        try
+        {
 
             HttpParams httpParams = new BasicHttpParams();
             int some_reasonable_timeout = (int) (30 * DateUtils.SECOND_IN_MILLIS);
@@ -260,15 +297,17 @@ public class Splash_Activity extends Activity {
             HttpPost httppost = new HttpPost(CommonInfo.ImageSyncPath);
 
 
+
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             HttpResponse response = httpclient.execute(httppost);
 
             String the_string_response = convertResponseToString(response);
-            if (the_string_response.equals("Abhinav")) {
+            if(the_string_response.equals("Abhinav"))
+            {
                 dbengine.updateSSttImage(fileName, 4);
                 dbengine.fndeleteSbumittedStoreImagesOfSotre(4);
 
-                String file_dj_path = Environment.getExternalStorageDirectory() + "/" + CommonInfo.RSPLImagesnFolder + "/" + fileName;
+                String file_dj_path = Environment.getExternalStorageDirectory() + "/"+CommonInfo.RSPLImagesnFolder+"/"+fileName;
                 File fdelete = new File(file_dj_path);
                 if (fdelete.exists()) {
                     if (fdelete.delete()) {
@@ -281,7 +320,8 @@ public class Splash_Activity extends Activity {
 
             }
 
-        } catch (Exception e) {
+        }catch(Exception e)
+        {
 
             System.out.println(e);
             //	IMGsyOK = 1;
@@ -303,24 +343,29 @@ public class Splash_Activity extends Activity {
         return result;
     }*/
 
-    public String BitMapToString(Bitmap bitmap) {
-        int h1 = bitmap.getHeight();
-        int w1 = bitmap.getWidth();
+    public String BitMapToString(Bitmap bitmap)
+    {
+        int h1=bitmap.getHeight();
+        int w1=bitmap.getWidth();
 
-        if (w1 > 768 || h1 > 1024) {
-            bitmap = Bitmap.createScaledBitmap(bitmap, 1024, 768, true);
-        } else {
-            bitmap = Bitmap.createScaledBitmap(bitmap, w1, h1, true);
+        if(w1 > 768 || h1 > 1024)
+        {
+            bitmap=Bitmap.createScaledBitmap(bitmap,1024,768,true);
+        }
+        else
+        {
+            bitmap=Bitmap.createScaledBitmap(bitmap,w1,h1,true);
         }
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] arr = baos.toByteArray();
-        String result = Base64.encodeToString(arr, Base64.DEFAULT);
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
+        byte [] arr=baos.toByteArray();
+        String result=Base64.encodeToString(arr, Base64.DEFAULT);
         return result;
     }
 
-    public String convertResponseToString(HttpResponse response) throws IllegalStateException, IOException {
+    public String convertResponseToString(HttpResponse response) throws IllegalStateException, IOException
+    {
 
         String res = "";
         StringBuffer buffer = new StringBuffer();
@@ -328,20 +373,30 @@ public class Splash_Activity extends Activity {
         int contentLength = (int) response.getEntity().getContentLength(); //getting content length…..
         //System.out.println("contentLength : " + contentLength);
         //Toast.makeText(MainActivity.this, "contentLength : " + contentLength, Toast.LENGTH_LONG).show();
-        if (contentLength < 0) {
-        } else {
+        if (contentLength < 0)
+        {
+        }
+        else
+        {
             byte[] data = new byte[512];
             int len = 0;
-            try {
-                while (-1 != (len = inputStream.read(data))) {
+            try
+            {
+                while (-1 != (len = inputStream.read(data)) )
+                {
                     buffer.append(new String(data, 0, len)); //converting to string and appending  to stringbuffer…..
                 }
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
-            try {
+            try
+            {
                 inputStream.close(); // closing the stream…..
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
             res = buffer.toString();     // converting stringbuffer to string…..
@@ -353,22 +408,26 @@ public class Splash_Activity extends Activity {
         return res;
     }
 
-    private class FullSyncDataNow extends AsyncTask<Void, Void, Void> {
+    private class FullSyncDataNow extends AsyncTask<Void, Void, Void>
+    {
 
 
-        int responseCode = 0;
 
-        public FullSyncDataNow(Splash_Activity activity) {
+        int responseCode=0;
+        public FullSyncDataNow(Splash_Activity activity)
+        {
 
         }
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             super.onPreExecute();
 
             File LTFoodXMLFolder = new File(Environment.getExternalStorageDirectory(), CommonInfo.RSPLOrderXMLFolder);
 
-            if (!LTFoodXMLFolder.exists()) {
+            if (!LTFoodXMLFolder.exists())
+            {
                 LTFoodXMLFolder.mkdirs();
             }
 
@@ -376,53 +435,73 @@ public class Splash_Activity extends Activity {
 
         @Override
 
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... params)
+        {
 
 
-            try {
+            try
+            {
+
 
 
                 File del = new File(Environment.getExternalStorageDirectory(), CommonInfo.RSPLOrderXMLFolder);
 
                 // check number of files in folder
-                String[] AllFilesName = checkNumberOfFiles(del);
+                String [] AllFilesName= checkNumberOfFiles(del);
 
 
-                if (AllFilesName.length > 0) {
+                if(AllFilesName.length>0)
+                {
                     SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 
 
-                    for (int vdo = 0; vdo < AllFilesName.length; vdo++) {
-                        String fileUri = AllFilesName[vdo];
+                    for(int vdo=0;vdo<AllFilesName.length;vdo++)
+                    {
+                        String fileUri=  AllFilesName[vdo];
 
 
                         //System.out.println("Sunil Again each file Name :" +fileUri);
 
-                        if (fileUri.contains(".zip")) {
-                            File file = new File(Environment.getExternalStorageDirectory().getPath() + "/" + CommonInfo.RSPLOrderXMLFolder + "/" + fileUri);
+                        if(fileUri.contains(".zip"))
+                        {
+                            File file = new File(Environment.getExternalStorageDirectory().getPath()+ "/" + CommonInfo.RSPLOrderXMLFolder + "/" +fileUri);
                             file.delete();
-                        } else {
-                            String f1 = Environment.getExternalStorageDirectory().getPath() + "/" + CommonInfo.RSPLOrderXMLFolder + "/" + fileUri;
+                        }
+                        else
+                        {
+                            String f1=Environment.getExternalStorageDirectory().getPath()+ "/" + CommonInfo.RSPLOrderXMLFolder + "/" +fileUri;
                             // System.out.println("Sunil Again each file full path"+f1);
-                            try {
-                                responseCode = upLoad2Server(f1, fileUri);
-                            } catch (Exception e) {
+                            try
+                            {
+                                responseCode= upLoad2Server(f1,fileUri);
+                            }
+                            catch (Exception e)
+                            {
                                 // TODO Auto-generated catch block
                                 e.printStackTrace();
                             }
                         }
-                        if (responseCode != 200) {
+                        if(responseCode!=200)
+                        {
                             break;
                         }
 
                     }
 
-                } else {
-                    responseCode = 200;
+                }
+                else
+                {
+                    responseCode=200;
                 }
 
 
-            } catch (Exception e) {
+
+
+
+
+
+            } catch (Exception e)
+            {
 
                 e.printStackTrace();
 
@@ -440,21 +519,25 @@ public class Splash_Activity extends Activity {
             super.onPostExecute(result);
 
 
-            if (responseCode == 200) {
+            if(responseCode == 200)
+            {
 
                 dbengine.fndeleteSbumittedStoreList(5);
                 dbengine.fndeleteSbumittedStoreList(4);
                 dbengine.deleteXmlTable("4");
 
-                if (dbengine.fnCheckForPendingHalftSavedStoresInTable() == 0) {
+                if(dbengine.fnCheckForPendingHalftSavedStoresInTable()==0) {
                     CheckUpdateVersion cuv = new CheckUpdateVersion();
                     cuv.execute();
-                } else {
+                }
+                else
+                {
                     intentPassToLauncherActivity("0");
                 }
 
 
             }
+
 
 
         }
@@ -476,30 +559,35 @@ public class Splash_Activity extends Activity {
         }
     }
 
-    public void delXML(String delPath) {
+    public void delXML(String delPath)
+    {
         File file = new File(delPath);
         file.delete();
         File file1 = new File(delPath.toString().replace(".xml", ".zip"));
         file1.delete();
     }
 
-    public static String[] checkNumberOfFiles(File dir) {
-        int NoOfFiles = 0;
-        String[] Totalfiles = null;
+    public static String[] checkNumberOfFiles(File dir)
+    {
+        int NoOfFiles=0;
+        String [] Totalfiles = null;
 
-        if (dir.isDirectory()) {
+        if (dir.isDirectory())
+        {
             String[] children = dir.list();
-            NoOfFiles = children.length;
-            Totalfiles = new String[children.length];
+            NoOfFiles=children.length;
+            Totalfiles=new String[children.length];
 
-            for (int i = 0; i < children.length; i++) {
-                Totalfiles[i] = children[i];
+            for (int i=0; i<children.length; i++)
+            {
+                Totalfiles[i]=children[i];
             }
         }
         return Totalfiles;
     }
 
-    public static void zip(String[] files, String zipFile) throws IOException {
+    public static void zip(String[] files, String zipFile) throws IOException
+    {
         BufferedInputStream origin = null;
         final int BUFFER_SIZE = 2048;
 
@@ -517,32 +605,39 @@ public class Splash_Activity extends Activity {
                     while ((count = origin.read(data, 0, BUFFER_SIZE)) != -1) {
                         out.write(data, 0, count);
                     }
-                } finally {
+                }
+                finally {
                     origin.close();
                 }
             }
-        } finally {
+        }
+
+        finally {
             out.close();
         }
     }
 
-    public int upLoad2Server(String sourceFileUri, String fileUri) {
+    public  int upLoad2Server(String sourceFileUri,String fileUri)
+    {
 
-        fileUri = fileUri.replace(".xml", "");
+        fileUri=fileUri.replace(".xml", "");
 
         String fileName = fileUri;
-        String zipFileName = fileUri;
+        String zipFileName=fileUri;
 
-        String newzipfile = Environment.getExternalStorageDirectory() + "/" + CommonInfo.RSPLOrderXMLFolder + "/" + fileName + ".zip";
+        String newzipfile = Environment.getExternalStorageDirectory() + "/"+CommonInfo.RSPLOrderXMLFolder+"/" + fileName + ".zip";
 
-        sourceFileUri = newzipfile;
+        sourceFileUri=newzipfile;
 
-        xmlForWeb[0] = Environment.getExternalStorageDirectory() + "/" + CommonInfo.RSPLOrderXMLFolder + "/" + fileName + ".xml";
+        xmlForWeb[0]=         Environment.getExternalStorageDirectory() + "/"+CommonInfo.RSPLOrderXMLFolder+"/" + fileName + ".xml";
 
 
-        try {
-            zip(xmlForWeb, newzipfile);
-        } catch (Exception e1) {
+        try
+        {
+            zip(xmlForWeb,newzipfile);
+        }
+        catch (Exception e1)
+        {
             // TODO Auto-generated catch block
             e1.printStackTrace();
             //java.io.FileNotFoundException: /359648069495987.2.21.04.2016.12.44.02: open failed: EROFS (Read-only file system)
@@ -561,7 +656,7 @@ public class Splash_Activity extends Activity {
 
         File file2send = new File(newzipfile);
 
-        String urlString = CommonInfo.OrderSyncPath.trim() + "?CLIENTFILENAME=" + zipFileName;
+        String urlString = CommonInfo.OrderSyncPath.trim()+"?CLIENTFILENAME=" + zipFileName;
 
         try {
 
@@ -597,7 +692,8 @@ public class Splash_Activity extends Activity {
             // read file and write it into form...
             bytesRead = fileInputStream.read(buffer, 0, bufferSize);
 
-            while (bytesRead > 0) {
+            while (bytesRead > 0)
+            {
                 dos.write(buffer, 0, bufferSize);
                 bytesAvailable = fileInputStream.available();
                 bufferSize = Math.min(bytesAvailable, maxBufferSize);
@@ -614,21 +710,24 @@ public class Splash_Activity extends Activity {
 
             //Log.i("uploadFile", "HTTP Response is : " + serverResponseMessage + ": " + serverResponseCode);
 
-            if (serverResponseCode == 200) {
+            if(serverResponseCode == 200)
+            {
                 syncFLAG = 1;
 
                 SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
                 // editor.remove(xmlForWeb[0]);
-                editor.putString(fileUri, "" + 4);
+                editor.putString(fileUri, ""+4);
                 editor.commit();
 
-                String FileSyncFlag = pref.getString(fileUri, "" + 1);
+                String FileSyncFlag=pref.getString(fileUri, ""+1);
                 dbengine.upDateTblXmlFile(fileName);
                 delXML(xmlForWeb[0].toString());
 
 
-            } else {
+            }
+            else
+            {
                 syncFLAG = 0;
             }
 
@@ -637,9 +736,11 @@ public class Splash_Activity extends Activity {
             dos.flush();
             dos.close();
 
-        } catch (MalformedURLException ex) {
+        } catch (MalformedURLException ex)
+        {
             ex.printStackTrace();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
 
@@ -647,74 +748,90 @@ public class Splash_Activity extends Activity {
 
     }
 
-    public void onCreateFunctionality() {
+    public void onCreateFunctionality()
+    {
         // SharedPreferences.Editor editor=sharedPreferences.edit();
         try {
             TelephonyManager tManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             imei = tManager.getDeviceId();
-        } catch (SecurityException e) {
+        }
+        catch (SecurityException e)
+        {
 
         }
-        // imei="866924020382358";   // Live user
-        // imei="354010084603910";
-        //  imei="866924020382358";
+       // imei="866924020382358";   // Live user
+       // imei="354010084603910";
+      //  imei="866924020382358";
 
-        // imei="354010084603910";//varun sir imei
+     // imei="354010084603910";//varun sir imei
 
-        // imei="866924028228116";
-        //  imei="864835035159106";
+       // imei="866924028228116";
+       //  imei="864835035159106";
 
-        // imei="351976082609146";  // Training User
+       // imei="351976082609146";  // Training User
 
         // imei="865241032604633";  // Live user
 
-        // imei="351976082609146";   // Dev User
-        //imei="354010084603910";
+       // imei="351976082609146";   // Dev User
+       //imei="354010084603910";
 
-        // imei="352840070645679";   //  imei (352840070645679) HardCode given to Ashish Sir(Alok Sir friend) on 13 march 2018 by Sunil Dangi
+       // imei="352840070645679";   //  imei (352840070645679) HardCode given to Ashish Sir(Alok Sir friend) on 13 march 2018 by Sunil Dangi
 
-        // imei="354010084603910_OLd";
-        //  imei="866924027228398";
-        imei = "351976084691043"; // Test release
+       // imei="354010084603910_OLd";
+      //  imei="866924027228398";
+        imei="351976084691043"; // Test release
 
-        // imei="356813085816045";
+       // imei="356813085816045";
 
-        if (CommonInfo.imei.equals("")) {
-            CommonInfo.imei = imei;
+        if( CommonInfo.imei.equals(""))
+        {
+            CommonInfo.imei=imei;
         }
 
-        // sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date date1 = new Date();
+       // sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date1=new Date();
         sdf = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
         fDate = sdf.format(date1).toString().trim();
         //check data is pending or not
 
-        if (isOnline()) {
+        if(isOnline())
+        {
             //if data pending send it to server
-            if (dbengine.fnCheckForPendingImages() == 1) {
+            if(dbengine.fnCheckForPendingImages()==1)
+            {
                 ImageSync task = new ImageSync(Splash_Activity.this);
                 task.execute();
-            } else if (dbengine.fnCheckForPendingXMLFilesInTable() == 1) {
+            }
+            else if(dbengine.fnCheckForPendingXMLFilesInTable()==1)
+            {
                 new FullSyncDataNow(Splash_Activity.this).execute();
-            } else {
-                if (dbengine.fnCheckForPendingHalftSavedStoresInTable() == 0) {
+            }
+            else
+            {
+                if(dbengine.fnCheckForPendingHalftSavedStoresInTable()==0)
+                {
                     CheckUpdateVersion cuv = new CheckUpdateVersion();
                     cuv.execute();
-                } else {
+                }
+                else
+                {
                     intentPassToLauncherActivity("0");
                 }
             }
 
 
-        } else {
+        }
+        else
+        {
             //if data is pending send to next page else show problem to next page
-            // showNoConnAlert();
+           // showNoConnAlert();
             dbengine.open();
-            int checkdataExistOrNot = dbengine.counttblUserName();
+            int checkdataExistOrNot=  dbengine. counttblUserName();
             dbengine.close();
-            if (checkdataExistOrNot == 0) {
+            if(checkdataExistOrNot==0){
                 intentPassToLauncherActivity("Your device has no Data Connection.Please ensure Internet is accessible to Continue.");//,"0","0","0"
-            } else {
+            }
+            else{
                /*  String userName=   dbengine.getUsername();
                 String storeCountDeatails=   dbengine.getTodatAndTotalStores();
                 String   TotalStores = storeCountDeatails.split(Pattern.quote("^"))[0];
@@ -727,33 +844,35 @@ public class Splash_Activity extends Activity {
     }
 
 
-    public void intentPassToLauncherActivity(String errorMessageFlag) {//,String username,String totaltarget,String todayTarget
-        if (errorMessageFlag.equals("0")) {
-            Intent intent = new Intent(Splash_Activity.this, StorelistActivity.class);
-            Splash_Activity.this.startActivity(intent);
-            finish();
-        } else {
-            Intent intent = new Intent(Splash_Activity.this, LauncherActivity.class);
-            intent.putExtra("FROM", "SPLASH");
-            intent.putExtra("errorMessageFlag", errorMessageFlag); // 0 if no error, if error, then error message passes
-            intent.putExtra("username", "");//if error then it will 0
-            intent.putExtra("totaltarget", "0");////if error then it will 0
-            intent.putExtra("todayTarget", "0");//if error then it will 0
-            Splash_Activity.this.startActivity(intent);
-            finish();
-        }
+   public void intentPassToLauncherActivity(String errorMessageFlag){//,String username,String totaltarget,String todayTarget
+       if(errorMessageFlag.equals("0"))
+       {
+           Intent intent =new Intent(Splash_Activity.this,StorelistActivity.class);
+           Splash_Activity.this.startActivity(intent);
+           finish();
+       }
+       else {
+           Intent intent = new Intent(Splash_Activity.this, LauncherActivity.class);
+           intent.putExtra("FROM", "SPLASH");
+           intent.putExtra("errorMessageFlag", errorMessageFlag); // 0 if no error, if error, then error message passes
+            intent.putExtra("username","");//if error then it will 0
+             intent.putExtra("totaltarget","0");////if error then it will 0
+            intent.putExtra("todayTarget","0");//if error then it will 0
+           Splash_Activity.this.startActivity(intent);
+           finish();
+       }
 
-    }
-
-    public boolean isOnline() {
+   }
+    public boolean isOnline()
+    {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
+        if (netInfo != null && netInfo.isConnected())
+        {
             return true;
         }
         return false;
     }
-
     private class CheckUpdateVersion extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
@@ -772,7 +891,7 @@ public class Splash_Activity extends Activity {
 
             } catch (Exception e) {
 
-                String Error = e.getMessage();
+                String Error=e.getMessage();
             } finally {
             }
 
@@ -788,13 +907,13 @@ public class Splash_Activity extends Activity {
             {
                 chkFlgForErrorToCloseApp = 0;
                 intentPassToLauncherActivity("Internet connection is slow ,please try again.");//, "0", "0", "0"
-                //  Toast.makeText(getApplicationContext(), "Internet connection is slow ,please try again.", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getApplicationContext(), "Internet connection is slow ,please try again.", Toast.LENGTH_LONG).show();
 
             } else {
                 dbengine.open();
                 int checkUserAuthenticate = dbengine.FetchflgUserAuthenticated();
-                int flgAppStatus = dbengine.FetchflgAppStatus();
-                int flgValidApplication = dbengine.FetchflgValidApplication();
+                int flgAppStatus= dbengine.FetchflgAppStatus();
+                int flgValidApplication= dbengine.FetchflgValidApplication();
                 dbengine.close();
 
                 if (checkUserAuthenticate == 0)   // 0 means-->New user        1 means-->Exist User
@@ -822,8 +941,8 @@ public class Splash_Activity extends Activity {
                 int check = dbengine.FetchVersionDownloadStatus();  // 0 means-->new version installed  1 means-->new version not install
                 dbengine.close();
                 if (check == 1) {
-                    showNewVersionAvailableAlert();
-                    // Toast.makeText(getApplicationContext(), "new version", Toast.LENGTH_LONG).show();
+                      showNewVersionAvailableAlert();
+                   // Toast.makeText(getApplicationContext(), "new version", Toast.LENGTH_LONG).show();
                 } else {
 
 
@@ -838,7 +957,7 @@ public class Splash_Activity extends Activity {
 
                         // showAlertBox("Your Phone  Date is not correct.Please Correct it.");
                         intentPassToLauncherActivity("Your Phone  Date is not correct.Please Correct it.");//, "0", "0", "0"
-                        // Toast.makeText(getApplicationContext(), "Your Phone  Date is not correct.Please Correct it.", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "Your Phone  Date is not correct.Please Correct it.", Toast.LENGTH_LONG).show();
                         return;
                     }
 
@@ -847,36 +966,43 @@ public class Splash_Activity extends Activity {
                        /* funGetRegistrationID("Create Registration ID");
                         checkPlayServices();*/
 
-                        //code here
-                        SharedPreferences sharedPreferences = getSharedPreferences("MyPref", MODE_PRIVATE);
+                         //code here
+                        SharedPreferences sharedPreferences=getSharedPreferences("MyPref", MODE_PRIVATE);
                         SharedPreferences.Editor ed;
-                        if (!sharedPreferences.contains("ServerDate")) {
+                        if(!sharedPreferences.contains("ServerDate")){
                             ed = sharedPreferences.edit();
                             ed.putString("ServerDate", getServerDate);
                             ed.commit();
                             //call second webservice
-                            GetStoreAllData getStoreAllDataAsync = new GetStoreAllData();
+                            GetStoreAllData getStoreAllDataAsync= new GetStoreAllData();
                             getStoreAllDataAsync.execute();
-                            //  Toast.makeText(getApplicationContext(), "first time call second webservice", Toast.LENGTH_LONG).show();
-                            //goto next page
-                        } else {
-                            if (sharedPreferences.getString("ServerDate", "").equals(getServerDate)) {
+                          //  Toast.makeText(getApplicationContext(), "first time call second webservice", Toast.LENGTH_LONG).show();
+                       //goto next page
+                        }
+                        else{
+                            if(sharedPreferences.getString("ServerDate", "").equals(getServerDate)){
 
-                                String userName = "";//   dbengine.getUsername();
-                                String storeCountDeatails = "0";//   dbengine.getTodatAndTotalStores();
-                                String TotalStores = "0";// storeCountDeatails.split(Pattern.quote("^"))[0];
-                                String TodayStores = "0";// storeCountDeatails.split(Pattern.quote("^"))[1];
+                                String userName="";//   dbengine.getUsername();
+                                String storeCountDeatails="0";//   dbengine.getTodatAndTotalStores();
+                                String   TotalStores ="0";// storeCountDeatails.split(Pattern.quote("^"))[0];
+                                String   TodayStores ="0";// storeCountDeatails.split(Pattern.quote("^"))[1];
 
 
-                                if (dbengine.fnCheckIfTableHasRcodrsOrNot("tblAllServicesCalledSuccessfull") == 0) {
+
+                                if(dbengine.fnCheckIfTableHasRcodrsOrNot("tblAllServicesCalledSuccessfull")==0)
+                                {
                                     dbengine.fnInsertOrUpdate_tblAllServicesCalledSuccessfull(1);
                                 }
-                                int chkFlgValue = dbengine.fnCheckTableFlagValue("tblAllServicesCalledSuccessfull", "flgAllServicesCalledOrNot");
-                                if (chkFlgValue == 1) {
-                                    GetStoreAllData getStoreAllDataAsync = new GetStoreAllData();
+                                int chkFlgValue=dbengine.fnCheckTableFlagValue("tblAllServicesCalledSuccessfull","flgAllServicesCalledOrNot");
+                                if(chkFlgValue==1)
+                                {
+                                    GetStoreAllData getStoreAllDataAsync= new GetStoreAllData();
                                     getStoreAllDataAsync.execute();
-                                } else {
-                                    if (dbengine.fngetcountAddedstore() == 0) {
+                                }
+                                else {
+                                if(dbengine.fngetcountAddedstore()==0)
+                                {
+
 
 
                                         Intent intent = new Intent(Splash_Activity.this, StorelistActivity.class);
@@ -884,27 +1010,30 @@ public class Splash_Activity extends Activity {
                                         finish();
 
 
-                                    } else {
-                                        intentPassToLauncherActivity("0");//, userName, TotalStores, TodayStores
-                                    }
                                 }
-                                //  Toast.makeText(getApplicationContext(), "Shared prf date server date same dont call second webservice", Toast.LENGTH_LONG).show();
+                                else
+                                {
+                                    intentPassToLauncherActivity("0");//, userName, TotalStores, TodayStores
+                                }
+                                }
+                              //  Toast.makeText(getApplicationContext(), "Shared prf date server date same dont call second webservice", Toast.LENGTH_LONG).show();
                                 //goto nextpage
-                            } else {
-                                // call webservice
+                            }
+                           else{
+                               // call webservice
                                 ed = sharedPreferences.edit();
                                 ed.putString("ServerDate", getServerDate);
                                 ed.commit();
-                                GetStoreAllData getStoreAllDataAsync = new GetStoreAllData();
+                                GetStoreAllData getStoreAllDataAsync= new GetStoreAllData();
                                 getStoreAllDataAsync.execute();
                                 //update sharedpreferences
-                                // Toast.makeText(getApplicationContext(), "Shared prf date server date  not same , call second webservice", Toast.LENGTH_LONG).show();
+                               // Toast.makeText(getApplicationContext(), "Shared prf date server date  not same , call second webservice", Toast.LENGTH_LONG).show();
 
                                 //goto nextpage
                             }
 
                         }
-                        // Toast.makeText(getApplicationContext(), "everything is fine", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "everything is fine", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -915,13 +1044,16 @@ public class Splash_Activity extends Activity {
 
     }
 
-    public void showAlert(String abcd) {
+    public void showAlert(String abcd)
+    {
         AlertDialog.Builder alertDialogNoConn = new AlertDialog.Builder(Splash_Activity.this);
         alertDialogNoConn.setTitle("Info");
         alertDialogNoConn.setMessage(abcd);
         alertDialogNoConn.setNeutralButton(R.string.txtOk,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+                new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
                         dialog.dismiss();
                         finish();
                     }
@@ -943,8 +1075,10 @@ public class Splash_Activity extends Activity {
                 //newservice = newservice.getAvailableAndUpdatedVersionOfApp(getApplicationContext(), imei,fDate,DatabaseVersion,ApplicationID);
 
                 dbengine.fnInsertOrUpdate_tblAllServicesCalledSuccessfull(1);
-                for (int mm = 1; mm < 7; mm++) {
-                    if (mm == 2) {
+                for(int mm = 1; mm<7; mm++)
+                {
+                    if(mm==2)
+                    {
                         newservice = newservice.getStoreAllDetails(getApplicationContext(), imei, fDate, DatabaseVersion, ApplicationID);
                         if (!newservice.director.toString().trim().equals("1")) {
                             if (chkFlgForErrorToCloseApp == 0) {
@@ -956,8 +1090,9 @@ public class Splash_Activity extends Activity {
 
 
                     }
-                    if (mm == 3) {
-                        newservice = newservice.callfnSingleCallAllWebService(getApplicationContext(), ApplicationID, imei);
+                    if(mm==3)
+                    {
+                        newservice = newservice.callfnSingleCallAllWebService(getApplicationContext(),ApplicationID,imei);
                         if (!newservice.director.toString().trim().equals("1")) {
                             if (chkFlgForErrorToCloseApp == 0) {
                                 chkFlgForErrorToCloseApp = 1;
@@ -967,7 +1102,8 @@ public class Splash_Activity extends Activity {
                         }
 
                     }
-                    if (mm == 4) {
+                    if(mm==4)
+                    {
                         newservice = newservice.getQuotationDataFromServer(getApplicationContext(), fDate, imei, "0");
                         if (!newservice.director.toString().trim().equals("1")) {
                             if (chkFlgForErrorToCloseApp == 0) {
@@ -978,7 +1114,8 @@ public class Splash_Activity extends Activity {
                         }
 
                     }
-                    if (mm == 1) {
+                    if(mm==1)
+                    {
                         newservice = newservice.getSOSummary(getApplicationContext(), imei, fDate, DatabaseVersion, ApplicationID);
                         if (!newservice.director.toString().trim().equals("1")) {
                             if (chkFlgForErrorToCloseApp == 0) {
@@ -989,7 +1126,8 @@ public class Splash_Activity extends Activity {
                         }
                     }
 
-                    if (mm == 5) {
+                    if(mm==5)
+                    {
                         newservice = newservice.getDistributorMstr(getApplicationContext(), imei, fDate);
                         if (!newservice.director.toString().trim().equals("1")) {
                             if (chkFlgForErrorToCloseApp == 0) {
@@ -999,12 +1137,15 @@ public class Splash_Activity extends Activity {
                         }
                     }
 
-                    if (mm == 6) {
+                    if(mm==6)
+                    {
 
-                        newservice = newservice.fnGetStateCityListMstr(Splash_Activity.this, imei, fDate, ApplicationID);
-                        if (!newservice.director.toString().trim().equals("1")) {
-                            if (chkFlgForErrorToCloseApp == 0) {
-                                chkFlgForErrorToCloseApp = 1;
+                        newservice = newservice.fnGetStateCityListMstr(Splash_Activity.this,imei, fDate,ApplicationID);
+                        if(!newservice.director.toString().trim().equals("1"))
+                        {
+                            if(chkFlgForErrorToCloseApp==0)
+                            {
+                                chkFlgForErrorToCloseApp=1;
                                 break;
                             }
 
@@ -1012,6 +1153,10 @@ public class Splash_Activity extends Activity {
                     }
 
                 }
+
+
+
+
 
 
             } catch (Exception e) {
@@ -1029,35 +1174,40 @@ public class Splash_Activity extends Activity {
             if (chkFlgForErrorToCloseApp == 1)   // if Webservice showing exception or not excute complete properly
             {
                 chkFlgForErrorToCloseApp = 0;
-                SharedPreferences sharedPreferences = getSharedPreferences("MyPref", MODE_PRIVATE);
+                SharedPreferences sharedPreferences=getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor ed;
-                if (sharedPreferences.contains("ServerDate")) {
+                if(sharedPreferences.contains("ServerDate"))
+                {
                     ed = sharedPreferences.edit();
                     ed.putString("ServerDate", "0");
                     ed.commit();
                 }
                 //clear sharedpreferences
                 intentPassToLauncherActivity("Internet connection is slow ,please try again.");//, "0", "0", "0"
-            } else {
-                String userName = "";// dbengine.getUsername();
-                String storeCountDeatails = "0";//  dbengine.getTodatAndTotalStores();
-                String TotalStores = "0";// storeCountDeatails.split(Pattern.quote("^"))[0];
-                String TodayStores = "0";// storeCountDeatails.split(Pattern.quote("^"))[1];
+            }
+            else {
+                String userName=  "";// dbengine.getUsername();
+                String storeCountDeatails= "0";//  dbengine.getTodatAndTotalStores();
+                String   TotalStores ="0";// storeCountDeatails.split(Pattern.quote("^"))[0];
+                String   TodayStores ="0";// storeCountDeatails.split(Pattern.quote("^"))[1];
 
 
                 //if
                 dbengine.fnInsertOrUpdate_tblAllServicesCalledSuccessfull(0);
-                if (dbengine.fngetcountAddedstore() == 0) {
+                if(dbengine.fngetcountAddedstore()==0)
+                {
 
-                    Intent intent = new Intent(Splash_Activity.this, StorelistActivity.class);
+                    Intent intent =new Intent(Splash_Activity.this,StorelistActivity.class);
                     Splash_Activity.this.startActivity(intent);
                     finish();
 
-                } else {
+                }
+                else
+                {
                     intentPassToLauncherActivity("0");//, userName, TotalStores, TodayStores
                 }
                 //intentPassToLauncherActivity("0", userName, TotalStores, TodayStores);
-                //else
+               //else
 
 
                 //send to storelist or launcher
@@ -1067,7 +1217,8 @@ public class Splash_Activity extends Activity {
 
     }
 
-    public void showNewVersionAvailableAlert() {
+    public void showNewVersionAvailableAlert()
+    {
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         final Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
         r.play();
@@ -1075,8 +1226,10 @@ public class Splash_Activity extends Activity {
         alertDialogNoConn.setTitle(R.string.genTermInformation);
         alertDialogNoConn.setCancelable(false);
         alertDialogNoConn.setMessage(getText(R.string.newVersionAlertOnLauncher));
-        alertDialogNoConn.setNeutralButton(R.string.txtOk, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
+        alertDialogNoConn.setNeutralButton(R.string.txtOk,new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which)
+            {
                 GetUpdateInfo task = new GetUpdateInfo(Splash_Activity.this);
                 task.execute();
                 dialog.dismiss();
@@ -1088,18 +1241,19 @@ public class Splash_Activity extends Activity {
         alert.show();
 
     }
-
-    private class GetUpdateInfo extends AsyncTask<Void, Void, Void> {
+    private class GetUpdateInfo extends AsyncTask<Void, Void, Void>
+    {
 
         ProgressDialog pDialogGetStores;
-
-        public GetUpdateInfo(Splash_Activity activity) {
+        public GetUpdateInfo(Splash_Activity activity)
+        {
             pDialogGetStores = new ProgressDialog(activity);
         }
 
 
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             super.onPreExecute();
 
             pDialogGetStores.setTitle(getText(R.string.genTermPleaseWaitNew));
@@ -1111,31 +1265,38 @@ public class Splash_Activity extends Activity {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... params)
+        {
 
-            try {
+            try
+            {
                 downloadapk();
-            } catch (Exception e) {
-            } finally {
             }
+            catch(Exception e)
+            {}
+
+            finally
+            {}
 
             return null;
         }
 
 
         @Override
-        protected void onPostExecute(Void result) {
+        protected void onPostExecute(Void result)
+        {
             super.onPostExecute(result);
 
-            if (pDialogGetStores.isShowing()) {
+            if(pDialogGetStores.isShowing())
+            {
                 pDialogGetStores.dismiss();
             }
 
             installApk();
         }
     }
-
-    private void installApk() {
+    private void installApk()
+    {
         this.deleteDatabase(DBAdapterLtFoods.DATABASE_NAME);
         File file = new File(Environment.getExternalStorageDirectory() + "/download/" + CommonInfo.VersionDownloadAPKName);
         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -1155,15 +1316,16 @@ public class Splash_Activity extends Activity {
         finish();
 
 
-    }
 
-    private void downloadapk() {
+    }
+    private void downloadapk()
+    {
         try {
 
             //ParagIndirectTest
             // URL url = new URL("http://115.124.126.184/downloads/ParagIndirect.apk");
             //  URL url = new URL("http://115.124.126.184/downloads/ParagIndirectTest.apk");
-            URL url = new URL(CommonInfo.VersionDownloadPath.trim() + CommonInfo.VersionDownloadAPKName);
+            URL url = new URL(CommonInfo.VersionDownloadPath.trim()+CommonInfo.VersionDownloadAPKName);
             URLConnection connection = url.openConnection();
             HttpURLConnection urlConnection = (HttpURLConnection) connection;
             //urlConnection.setRequestProperty("Accept-Charset", "UTF-8");
@@ -1182,8 +1344,9 @@ public class Splash_Activity extends Activity {
 
             String PATH = Environment.getExternalStorageDirectory() + "/download/";
             // File file2 = new File(PATH+"ParagIndirect.apk");
-            File file2 = new File(PATH + CommonInfo.VersionDownloadAPKName);
-            if (file2.exists()) {
+            File file2 = new File(PATH+CommonInfo.VersionDownloadAPKName);
+            if(file2.exists())
+            {
                 file2.delete();
             }
 
@@ -1207,7 +1370,7 @@ public class Splash_Activity extends Activity {
             byte[] buffer = new byte[10240];
             int bufferLength = 0;
             int current = 0;
-            while ((bufferLength = inputStream.read(buffer)) != -1) {
+            while ( (bufferLength = inputStream.read(buffer)) != -1 ) {
                 fileOutput.write(buffer, 0, bufferLength);
             }
             //current+=bufferLength;
@@ -1220,7 +1383,8 @@ public class Splash_Activity extends Activity {
             //  }
 
 
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException e)
+        {
             //  e.printStackTrace();
             //   //System.out.println("sunil downloadapk failed ");
         } catch (IOException e) {
@@ -1231,11 +1395,15 @@ public class Splash_Activity extends Activity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if ((grantResults[0] == PackageManager.PERMISSION_GRANTED) && (grantResults[1] == PackageManager.PERMISSION_GRANTED) && (grantResults[2] == PackageManager.PERMISSION_GRANTED) && (grantResults[3] == PackageManager.PERMISSION_GRANTED) && (grantResults[4] == PackageManager.PERMISSION_GRANTED)) {
+        if((grantResults[0]== PackageManager.PERMISSION_GRANTED) && (grantResults[1]== PackageManager.PERMISSION_GRANTED) && (grantResults[2]== PackageManager.PERMISSION_GRANTED) && (grantResults[3]== PackageManager.PERMISSION_GRANTED)&& (grantResults[4]== PackageManager.PERMISSION_GRANTED))
+        {
             onCreateFunctionality();
-        } else {
+        }
+        else
+        {
             finish();
 
         }

@@ -4827,7 +4827,7 @@ public void selectedOption(String optId, String optionVal, EditText editext,List
 		SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss",Locale.ENGLISH);
 		onlyDate=df.format(datefromat);
 		onlyDate=onlyDate.replace(":","").trim().replace("-", "").replace(" ","").trim().toString();
-		File imagesFolder = new File(Environment.getExternalStorageDirectory(), CommonInfo.RSPLImagesnFolder);
+		File imagesFolder = new File(Environment.getExternalStorageDirectory(), CommonInfo.ImagesnFolder);
 		if (!imagesFolder.exists())
 		{
 			imagesFolder.mkdirs();
@@ -9007,7 +9007,7 @@ public void selectedOption(String optId, String optionVal, EditText editext,List
 
 	private static File getOutputMediaFile() {
 		//make a new file directory inside the "sdcard" folder
-		File mediaStorageDir = new File("/sdcard/", CommonInfo.RSPLImagesnFolder);
+		File mediaStorageDir = new File("/sdcard/", CommonInfo.ImagesnFolder);
 
 		//if this "JCGCamera folder does not exist
 		if (!mediaStorageDir.exists()) {
