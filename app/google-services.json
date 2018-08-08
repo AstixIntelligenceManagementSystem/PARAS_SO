@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "538154369008",
+    "firebase_url": "https://parasso-212706.firebaseio.com",
+    "project_id": "parasso-212706",
+    "storage_bucket": "parasso-212706.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538154369008:android:5fbdca8fd0d5f99c",
+        "android_client_info": {
+          "package_name": "rspl_so.astix.paras_so"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538154369008-2vbpjj3u1jdfr9shth2j6vmtkkc6irko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8VQSHhrMhtI0iyiq8sI0m5lH6ArBafD0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
