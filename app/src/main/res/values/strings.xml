@@ -2,26 +2,26 @@
 <resources>
 
 
-   <!--<string name="app_name">RSPL SO</string>-->
+    <!--<string name="app_name">PARAS SO</string>-->
 
-   <!-- <string name="app_name">RSPL SO Stagging</string>-->
+    <!-- <string name="app_name">PARAS SO Stagging</string>-->
 
- <!-- <string name="app_name">RSPL SO Test</string>-->
+    <!-- <string name="app_name">PARAS SO Test</string>-->
 
-   <!-- <string name="app_name">RSPL SO Dev</string>-->
+    <!-- <string name="app_name">PARAS SO Dev</string>-->
 
-   <!--<string name="app_name">RSPL SO Training</string>-->
+    <!--<string name="app_name">PARAS SO Training</string>-->
 
-    <!--<string name="app_name">RSPL SO Demo</string>-->
-    <string name="app_name">RSPL SO Test Release</string>
+    <!--<string name="app_name">PARAS SO Demo</string>-->
+    <string name="app_name">PARAS SO Test Release</string>
 
-   <string name="AlertDialogHeaderMsg">Alert</string>
-   <string name="AlertDialogHeaderErrorMsg">Error</string>
+    <string name="AlertDialogHeaderMsg">Alert</string>
+    <string name="AlertDialogHeaderErrorMsg">Error</string>
 
-   <string name="AlertDialogOkButton">OK</string>
-   <string name="AlertDialogCancelButton">Cancel</string>
-   <string name="AlertDialogYesButton">Yes</string>
-   <string name="AlertDialogNoButton">No</string>
+    <string name="AlertDialogOkButton">OK</string>
+    <string name="AlertDialogCancelButton">Cancel</string>
+    <string name="AlertDialogYesButton">Yes</string>
+    <string name="AlertDialogNoButton">No</string>
 
     <!--new added-->
     <string name="SalesTarget">Sales Target</string>
@@ -40,10 +40,10 @@
     <string name="EnsureInternet">Data has been saved.Please ensure internet connectivity to submit data to server.</string>
     <string name="SelectAlertTargetMeasure">Select Measure</string>
 
-   <string name="syncAlertsubmit"><small>Data submitted successfully.</small></string>
+    <string name="syncAlertsubmit"><small>Data submitted successfully.</small></string>
     <string name="ManageDSRMsg">Manage DSR &amp; IMEI</string>
 
-   <string name="so_summary_point_note_text">Stores Added in the last approximately 15 minutes may not be counted in the values above......</string>
+    <string name="so_summary_point_note_text">Stores Added in the last approximately 15 minutes may not be counted in the values above......</string>
 
     <string name="reason_prompt">Please Select Reason</string>
 
@@ -69,7 +69,6 @@
     <string name="second_msg_for_map">Please try to get your location once again, If location found to be reasonably accurate as per system it wil be saved.</string>
     <string name="third_msg_for_map">Data will be saved with the current location which appear to be accurate..</string>
     <string name="loc_not_found">Location cannot be found accurately by the system , store will be saved without Location.This can be done later.</string>
-
 
 
     <string name="spinner_route">Routes </string>
@@ -102,10 +101,10 @@
     <!--    <string name="only_alpha_numeric">.?- abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
      -->
 
- <string name="activity_summary"></string>
-   <string name="newVersionAlertOnLauncherOnStoreSelection">New Version of this application is available now. \nPlease Update All Pending Data if any and then \ninstall the new Version!</string>
+    <string name="activity_summary"></string>
+    <string name="newVersionAlertOnLauncherOnStoreSelection">New Version of this application is available now. \nPlease Update All Pending Data if any and then \ninstall the new Version!</string>
 
- <string name="only_alpha_numeric">.- abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="only_alpha_numeric">.- abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="atoreNameValidation">.-/ abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="nameValidation">. abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="addressValidation">.,/- abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
@@ -346,14 +345,11 @@
         InstanceID token to logcat.</string>
     <string name="subscribe_to_news">Subscribe To News</string>
     <string name="log_token">Log Token</string>
-
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string name="title_activity_storelist">StorelistActivity</string>
     <string name="title_activity_storelist_new_added">StorelistNewAdded</string>
-    <string name="title_activity_add_new_store__dynamic_section_wise">AddNewStore_DynamicSectionWise
-    </string>
-
+    <string name="title_activity_add_new_store__dynamic_section_wise">AddNewStore_DynamicSectionWise</string>
     <string name="validateTargetMin">Total of brand wise target for </string>
     <string name="validateTargetMinVal"> cannot be less than </string>
 
